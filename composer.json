@@ -1,0 +1,50 @@
+{
+  "name": "heartide/aliyun-sls",
+  "description": "基于Hyperf2.0的阿里云日志组件",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Junduo",
+      "email": "caijunduo@gmail.com"
+    }
+  ],
+  "require": {
+    "hyperf/guzzle": "~2.0.0",
+    "hyperf/contract": "~2.0.0",
+    "psr/container": "^1.0",
+    "php": ">=7.2",
+    "ext-json": "*",
+    "ext-zlib": "*"
+  },
+  "require-dev": {
+    "hyperf/config": "~2.0.0",
+    "hyperf/event": "~2.0.0",
+    "hyperf/framework": "~2.0.0",
+    "hyperf/process": "~2.0.0",
+    "malukenho/docheader": "^0.1.6",
+    "mockery/mockery": "^1.0",
+    "phpunit/phpunit": "^7.0.0",
+    "monolog/monolog": "^2.0",
+    "hyperf/utils": "~2.0.0",
+    "friendsofphp/php-cs-fixer": "^2.9",
+    "hyperf/di": "~2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Heartide\\AliYun\\Sls\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "HeartideTest\\AliYun\\Sls\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "hyperf": {
+      "config": "Heartide\\AliYun\\Sls\\ConfigProvider"
+    }
+  }
+}

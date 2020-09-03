@@ -1,0 +1,6 @@
+.idea/
+vendor/
+.env*
+.git/
+.DS_Store
+Thumbs.db
