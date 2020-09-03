@@ -1,6 +1,6 @@
 {
   "name": "heartide/aliyun-sls",
-  "description": "基于Hyperf2.0的阿里云日志组件",
+  "description": "基于Hyperf2.0中的阿里云SLS服务扩展",
   "license": "MIT",
   "authors": [
     {
