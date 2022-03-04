@@ -1,11 +1,11 @@
 # 项目概述
-- 基于Hyperf2.0中的阿里云SLS服务扩展
+- 基于Hyperf2.1中的阿里云SLS服务扩展
 
 # 运行环境
 
 确保操作环境满足以下要求：
 
-- PHP >= 7.2
+- PHP >= 7.3
 - Swoole PHP extension >= 4.4, and Disabled `Short Name`
 - OpenSSL PHP extension
 - JSON PHP extension
