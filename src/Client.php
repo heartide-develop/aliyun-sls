@@ -223,7 +223,7 @@ class Client implements ClientInterface
         $logstore = $request->getLogstore() !== null ? $request->getLogstore() : '';
         $project = $request->getProject() !== null ? $request->getProject() : '';
         $shardKey = $request -> getShardKey();
-        $resource = "/logstores/" . $logstore.($shardKey== null?"/shards/lb":"/shards/route");
+        $resource = "/logstores/" . $logstore . "/shards/route");
         if($shardKey)
             $params["key"]=$shardKey;
         list ( $resp, $header ) = $this->send ( "POST", $project, $body, $resource, $params, $headers );
