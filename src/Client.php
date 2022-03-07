@@ -218,15 +218,17 @@ class Client implements ClientInterface
         $headers["x-log-bodyrawsize"] = $bodySize;
         $headers['x-log-compresstype'] = 'deflate';
         $headers['Content-Type'] = 'application/x-protobuf';
-        if ($request->getShardKey()) {
-            $headers["x-log-hashkey"] = $request->getShardKey();
-        }
         $body = gzcompress($body, 6);
-
-        $resource = "/logstores/" . $request->getLogstore() . "/shards/lb";
-        [$resp, $header] = $this->send("POST", $request->getProject(), $body, $resource, $params, $headers);
-        $requestId = isset($header['x-log-requestid']) ? $header['x-log-requestid'] : '';
-        $resp = $this->parseToJson($resp, $requestId);
+        
+        $logstore = $request->getLogstore() !== null ? $request->getLogstore() : '';
+        $project = $request->getProject() !== null ? $request->getProject() : '';
+        $shardKey = $request -> getShardKey();
+        $resource = "/logstores/" . $logstore.($shardKey== null?"/shards/lb":"/shards/route");
+        if($shardKey)
+            $params["key"]=$shardKey;
+        list ( $resp, $header ) = $this->send ( "POST", $project, $body, $resource, $params, $headers );
+        $requestId = isset ( $header ['x-log-requestid'] ) ? $header ['x-log-requestid'] : '';
+        $resp = $this->parseToJson ( $resp, $requestId );
         return make(PutLogsResponse::class, [$header]);
     }
 
